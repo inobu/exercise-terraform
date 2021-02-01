@@ -1,6 +1,6 @@
 variable "name" {}
 variable "policy" {}
-variable "identifer" {}
+variable "identifiers" {}
 
 resource "aws_iam_role" "default" {
   name               = var.name
@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "assume_role" {
 
     principals {
       type       = "Service"
-      identifers = [var.identifers]
+      identifiers = [var.identifiers]
     }
   }
 }

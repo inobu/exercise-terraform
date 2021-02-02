@@ -7,3 +7,10 @@
 # エディターベースの HTTP クライアントリクエスト
 /httpRequests/
 /.idea
+/aws.xml
+/codeStyles/codeStyleConfig.xml
+/exercise-terrraform.iml
+/misc.xml
+/modules.xml
+/codeStyles/Project.xml
+/vcs.xml

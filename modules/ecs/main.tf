@@ -31,7 +31,7 @@ resource "aws_ecs_service" "example_service" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.example.arn
+    target_group_arn = module.alb.alb_group_arn
     container_name   = "example"
     container_port   = 80
   }

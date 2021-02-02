@@ -42,11 +42,12 @@ resource "aws_ecs_service" "example_service" {
 }
 
 module "nginx_sg" {
-  source = "./security_group"
+  source = "../security_group"
+
   name   = "nginx-sg"
-  vpc_id = aws_vpc.example_vpc.id
+  vpc_id = module.aws_vpc.aws_subnet_private_0.id
   port   = 80
   cidr_blocks = [
-  aws_vpc.example_vpc.cidr_block]
+  module.aws_vpc.cidr_block]
 }
 

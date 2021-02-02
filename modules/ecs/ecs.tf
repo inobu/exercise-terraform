@@ -26,7 +26,7 @@ resource "aws_ecs_service" "example_service" {
     module.nginx_sg.security_group_id]
 
     subnets = [
-      aws_subnet.private_0.id,
+      data.aws_subnet_private_0.outputs.private_0.id,
     ]
   }
 
@@ -49,3 +49,4 @@ module "nginx_sg" {
   cidr_blocks = [
   aws_vpc.example_vpc.cidr_block]
 }
+

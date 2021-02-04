@@ -6,8 +6,8 @@ variable "cidr_blocks" {
 }
 
 resource "aws_security_group" "default" {
-  name   = "var.name"
-  vpc_id = "var.vpc_id"
+  name   = var.name
+  vpc_id = var.vpc_id
 }
 
 resource "aws_security_group_rule" "ingress" {

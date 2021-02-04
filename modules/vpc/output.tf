@@ -14,6 +14,10 @@ output "aws_subnet_public_1" {
   value = aws_subnet.public_1
 }
 
+output "aws_vpc_id" {
+  value = aws_vpc.example_vpc.id
+}
+
 output "cidr_block" {
   value = aws_vpc.example_vpc.cidr_block
 }

@@ -18,7 +18,13 @@ resource "aws_lb_listener" "example_listener" {
   load_balancer_arn = aws_alb.example_alb.arn
   port              = 80
   default_action {
-    type = ""
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "これは『HTTP』です"
+      status_code  = "200"
+    }
   }
 }
 

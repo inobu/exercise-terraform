@@ -5,7 +5,10 @@ resource "aws_alb" "example_alb" {
   idle_timeout               = 60
   enable_deletion_protection = true
 
-  subnets = []
+  subnets = [
+    module.vpc.aws_subnet_private_0,
+    module.vpc.aws_subnet_private_1
+  ]
 
   access_logs {
     bucket = ""

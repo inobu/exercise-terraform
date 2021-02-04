@@ -34,7 +34,7 @@ resource "aws_lb_listener" "example_listener" {
 resource "aws_lb_target_group" "example_group" {
   name        = "example"
   target_type = "ip"
-  vpc_id      = ""
+  vpc_id      = module.vpc.aws_vpc_id
   port        = 80
   protocol    = "HTTP"
 

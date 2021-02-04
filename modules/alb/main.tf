@@ -48,5 +48,7 @@ resource "aws_lb_target_group" "example_group" {
     port                = "traffic-port"
     protocol            = "HTTP"
   }
+
+  depends_on = [aws_alb.example_alb]
 }
 

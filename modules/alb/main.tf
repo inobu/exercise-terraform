@@ -7,7 +7,7 @@ resource "aws_alb" "example_alb" {
 
   subnets = [
     module.vpc.aws_subnet_public_0.vpc_id,
-    module.vpc.aws_subnet_public_0.vpc_id
+    module.vpc.aws_subnet_public_1.vpc_id
   ]
 
   access_logs {

@@ -6,8 +6,8 @@ resource "aws_alb" "example_alb" {
   enable_deletion_protection = true
 
   subnets = [
-    module.vpc.aws_subnet_private_0.vpc_id,
-    module.vpc.aws_subnet_private_1.vpc_id
+    module.vpc.aws_subnet_public_0.vpc_id,
+    module.vpc.aws_subnet_public_0.vpc_id
   ]
 
   access_logs {

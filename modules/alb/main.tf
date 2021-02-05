@@ -6,21 +6,19 @@ resource "aws_alb" "example_alb" {
   enable_deletion_protection = true
 
   subnets = [
-    module.vpc.aws_subnet_public_0.vpc_id,
-    module.vpc.aws_subnet_public_1.vpc_id
+    module.vpc.aws_subnet_public_0.id,
+    module.vpc.aws_subnet_public_1.id
   ]
 
-  access_logs {
-    bucket = ""
-  }
 
   security_groups = []
 }
 
-resource "aws_lb_listener" "example_listener" {
+resource "aws_alb_listener" "example_listener" {
   load_balancer_arn = aws_alb.example_alb.arn
   port              = 80
   default_action {
+    target_group_arn = aws_lb_target_group.example_group.id
     type = "fixed-response"
 
     fixed_response {

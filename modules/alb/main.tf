@@ -3,7 +3,7 @@ resource "aws_alb" "example_alb" {
   load_balancer_type         = "application"
   internal                   = false
   idle_timeout               = 60
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   subnets = [
     module.vpc.aws_subnet_public_0.id,
@@ -11,7 +11,7 @@ resource "aws_alb" "example_alb" {
   ]
 
 
-  security_groups = []
+  security_groups = [module.security_group.security_group_id]
 }
 
 resource "aws_alb_listener" "example_listener" {

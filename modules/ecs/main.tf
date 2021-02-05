@@ -12,7 +12,7 @@ resource "aws_ecs_cluster" "example_cluster" {
 }
 
 resource "aws_ecs_service" "example_service" {
-  name                              = "example"
+  name                              = "example_service"
   cluster                           = aws_ecs_cluster.example_cluster.arn
   task_definition                   = aws_ecs_task_definition.example_task.arn
   desired_count                     = 2
@@ -27,8 +27,8 @@ resource "aws_ecs_service" "example_service" {
     module.nginx_sg.security_group_id]
 
     subnets = [
-      module.aws_vpc.aws_subnet_public_0.id,
-      module.aws_vpc.aws_subnet_public_1.id
+      module.aws_vpc.aws_subnet_private_1.id,
+      module.aws_vpc.aws_subnet_private_0.id
     ]
   }
 
@@ -42,7 +42,7 @@ resource "aws_ecs_service" "example_service" {
     ignore_changes = [task_definition]
   }
 
-  depends_on = [module.alb.alb_group]
+  depends_on = [module.alb.alb_listener]
 }
 
 module "nginx_sg" {

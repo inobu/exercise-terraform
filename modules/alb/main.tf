@@ -19,13 +19,13 @@ resource "aws_alb_listener" "example_listener" {
   port              = 80
   default_action {
     target_group_arn = aws_lb_target_group.example_group.id
-    type = "fixed-response"
+    type = "forward"
 
-    fixed_response {
-      content_type = "text/plain"
-      message_body = "これは『HTTP』です"
-      status_code  = "200"
-    }
+//    fixed_response {
+//      content_type = "text/plain"
+//      message_body = "これは『HTTP』です"
+//      status_code  = "200"
+//    }
   }
 }
 
